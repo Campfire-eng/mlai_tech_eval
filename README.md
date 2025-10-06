@@ -15,7 +15,7 @@ uv run train.py
 ```
 
 ## Dataset
-- **File**: `data/fora_test.csv`
+- **File**: `data/data.csv`
 - **Size**: 10,000 transaction records
 - **Features**: 29 columns including transaction details, amounts, dates, and text descriptions
 - **Target**: `account_id` (111 unique values)
