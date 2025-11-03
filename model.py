@@ -1,13 +1,12 @@
 """
-Neural network model definition
+Neural network model definition for Forest Covertype classification
 """
-
 import torch
 import torch.nn as nn
 
 
 class SimpleNN(nn.Module):
-    """Simple feedforward neural network for classification"""
+    """Simple feedforward neural network for 7-class forest covertype classification"""
 
     def __init__(self, input_dim, num_classes):
         super(SimpleNN, self).__init__()
