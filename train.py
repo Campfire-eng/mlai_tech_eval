@@ -12,6 +12,9 @@ from pathlib import Path
 from dataset import get_data
 from model import build_model
 
+# Training configuration
+NUM_EPOCHS = 10
+
 
 def evaluate_model(model, X, y, device=None):
     """Evaluate model and return accuracy and detailed metrics"""
@@ -71,7 +74,7 @@ def train():
     print("\n" + "="*60)
     print("TRAINING")
     print("="*60)
-    print(f"Training for 10 epochs...")
+    print(f"Training for {NUM_EPOCHS} epochs...")
     print()
     
     # Track metrics for plotting
@@ -92,7 +95,7 @@ def train():
             loss = criterion(outputs, y_val_tensor)
         return loss.item()
     
-    for epoch in range(10):
+    for epoch in range(NUM_EPOCHS):
         # Training phase
         model.train()
         epoch_loss = 0.0
@@ -133,7 +136,7 @@ def train():
         if val_accuracy > best_val_accuracy:
             best_val_accuracy = val_accuracy
         
-        print(f"Epoch {epoch+1:2d}/10 - Loss: {avg_loss:.4f} | "
+        print(f"Epoch {epoch+1:2d}/{NUM_EPOCHS} - Loss: {avg_loss:.4f} | "
               f"Train Acc: {train_accuracy:.4f} | Val Acc: {val_accuracy:.4f}")
     
     print(f"\nBest Validation Accuracy: {best_val_accuracy:.4f}")
